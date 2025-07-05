@@ -12,7 +12,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\src\\automationScript.ts",
+            "program": "${workspaceFolder}\\src\\runProcess.ts",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]

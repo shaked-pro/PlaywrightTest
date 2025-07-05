@@ -1,37 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -42,11 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MAX_APPS = void 0;
+exports.launchBrowser = launchBrowser;
+exports.navigateToCategory = navigateToCategory;
+exports.extractAppCards = extractAppCards;
+exports.extractAppData = extractAppData;
 const playwright_1 = require("playwright");
-const fs = __importStar(require("fs"));
 const PROFILE_PATH = './google-profile'; //used fake google profile for auth puposes
 const CATEGORY_URL = 'https://workspace.google.com/marketplace/category/productivity';
-const MAX_APPS = 10; //const limiting number of apps to parse
+exports.MAX_APPS = 10; //const limiting number of apps to parse
 //this function launches the browser with a persistent context using a fake profile
 //this was done to avoid authentication issues 
 //INPUT: none
@@ -92,25 +63,4 @@ function extractAppData(card) {
         return { name, author, description, rating, downloads };
     });
 }
-//this function is the main entry point of the script. It launches the browser, 
-//navigates to the category page, extracts app data, and writes it to a JSON file.
-//INPUT: none
-//OUTPUT: none
-function run() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const { context, page } = yield launchBrowser();
-        yield navigateToCategory(page);
-        const cards = yield extractAppCards(page);
-        const results = [];
-        for (let i = 0; i < Math.min(cards.length, MAX_APPS); i++) {
-            const data = yield extractAppData(cards[i]);
-            results.push(data);
-        }
-        // Write results to file
-        fs.writeFileSync('apps.json', JSON.stringify(results, null, 2));
-        console.log('Data written to apps.json');
-        yield context.close();
-    });
-}
-run();
 //# sourceMappingURL=automationScript.js.map
