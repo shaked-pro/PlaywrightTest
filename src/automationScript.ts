@@ -1,39 +1,41 @@
-import { chromium } from 'playwright';
+import { chromium, Request } from 'playwright';
 
 (async () => {
-    const browser = await chromium.launch({ headless: false });
-    const page = await browser.newPage();
+    const context = await chromium.launchPersistentContext('./google-profile', {
+        headless: false
+      });
+    const page = await context.newPage();
 
     await page.goto('https://workspace.google.com/marketplace/category/productivity', {
         waitUntil: 'domcontentloaded'
     });
 
-    // Wait for app cards to load
-    await page.waitForSelector('div.nrKJWc');
-
-    const allCards = await page.$$('div.nrKJWc');
-
-    const visibleCards = [];
-
-    for (const card of allCards) {
-        const box = await card.boundingBox();
-        if (box) visibleCards.push(card); // skip hidden/offscreen cards
-    }
-
-    console.log(`Found ${visibleCards.length} visible cards`);
+    await page.waitForSelector('a.RwHvCd');
+    const cards = await page.$$('a.RwHvCd');
+    const installButtons = await page.$$('button:has-text("Install")'); // Assume button list matches card order
 
     const results = [];
 
-    for (let i = 0; i < Math.min(visibleCards.length, 10); i++) {
-        const card = visibleCards[i];
+    for (let i = 0; i < Math.min(cards.length, 10); i++) {
+        const card = cards[i];
 
         const name = await card.$eval('div.M0atNd', el => el.textContent?.trim() || '');
         const author = await card.$eval('span.y51Cnd', el => el.textContent?.trim() || '');
+        const description = await card.$eval('div.BiEFEd', el => el.textContent?.trim() || '');
 
-        results.push({ name, author });
+        const rating = await card.$eval('span.GDSAjf span.kVdtk:nth-of-type(1) span.wUhZA', el => el.textContent?.trim() || null).catch(() => null);
+        const downloads = await card.$eval('span.GDSAjf span.kVdtk:nth-of-type(2) span.wUhZA', el => el.textContent?.trim() || null).catch(() => null);
+
+        results.push({
+            name,
+            author,
+            description,
+            rating,
+            downloads
+        });
     }
 
     console.log(JSON.stringify(results, null, 2));
-
-    await browser.close();
+    await context.close();
 })();
+
