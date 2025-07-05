@@ -12,7 +12,6 @@ import { chromium, Request } from 'playwright';
 
     await page.waitForSelector('a.RwHvCd');
     const cards = await page.$$('a.RwHvCd');
-    const installButtons = await page.$$('button:has-text("Install")'); // Assume button list matches card order
 
     const results = [];
 
