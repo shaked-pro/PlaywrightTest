@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Colaboratory",
+    "author": "Colaboratory team",
+    "description": "This allows Google Colaboratory to open and create files in Google Drive. It is automatically installed on first use; uninstalling this will not prevent access to Colaboratory.",
+    "rating": "4.7",
+    "downloads": "73M+"
+  },
+  {
+    "name": "DocHub - PDF Sign and Edit",
+    "author": "DocHub",
+    "description": "Sign PDF or document files, create forms and edit PDFs online for free!  Apply legally binding eSignatures, send (or receive) faxes, create reusable templates and more.",
+    "rating": "4.5",
+    "downloads": "58M+"
+  },
+  {
+    "name": "Lucidchart",
+    "author": "Lucid Software",
+    "description": "Collaborate on diagrams, such as flowcharts, wireframes, ERDs, and more.",
+    "rating": "4.1",
+    "downloads": "47M+"
+  },
+  {
+    "name": "CloudConvert",
+    "author": "CloudConvert",
+    "description": "convert anything to anything",
+    "rating": "4.3",
+    "downloads": "47M+"
+  },
+  {
+    "name": "Form Notifications",
+    "author": "Google",
+    "description": "Create and configure email notifications for response thresholds and Form respondents.",
+    "rating": "4.1",
+    "downloads": "40M+"
+  },
+  {
+    "name": "Magic Rainbow Unicorns Slides™",
+    "author": "Dagmar Timler",
+    "description": "Change boring font colours in your documents to a rainbow-tastic feast.",
+    "rating": "4.4",
+    "downloads": "33M+"
+  },
+  {
+    "name": "AppSheet",
+    "author": "Google",
+    "description": "AppSheet is the intelligent, no-code application development platform. With AppSheet, anyone can build and deploy mobile apps in minutes without code.",
+    "rating": "4.4",
+    "downloads": "32M+"
+  },
+  {
+    "name": "Adobe Acrobat: PDF edit, convert, sign tools",
+    "author": "Adobe",
+    "description": "Every PDF and e-sign tool you need, all in one place — embedded in Google Drive™.",
+    "rating": "4.3",
+    "downloads": "24M+"
+  },
+  {
+    "name": "Document Viewer for Drive™",
+    "author": "documentviewer.herokuapp.com",
+    "description": "This viewer lets you view document files (doc, xls, ppt, pdf, ai, psd, dxf, ps, zip, rar...) online without leaving your browser.",
+    "rating": "2.5",
+    "downloads": "23M+"
+  },
+  {
+    "name": "draw.io",
+    "author": "JGraph Ltd",
+    "description": "draw.io™ is an online diagramming application where you store your data in your choice of cloud storage.",
+    "rating": "4.6",
+    "downloads": "23M+"
+  }
+]
