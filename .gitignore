@@ -1,0 +1,20 @@
+# Node.js dependencies
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+
+# dotenv environment files
+.env
+.env.*
+
+# Playwright browser cache
+.playwright/
+
+# Temporary files
+*.tmp
+*.swp
