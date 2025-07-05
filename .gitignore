@@ -4,6 +4,9 @@ node_modules/
 # TypeScript cache
 *.tsbuildinfo
 
+#google account stuff
+google-profile/
+
 # Logs
 logs/
 *.log
