@@ -1,5 +1,5 @@
 # Clutch Test
 
-Hey Clutch team, please review my solution. note that I used a fake google accoun to avoid authentication issues. the google-profile folder is in gitIgnore. 
+A Playwrite automation to extract data from google marketplace. Used a fake google account to avoid authentication issues (google-profile folder is in gitignore). 
 
 To run the unit tests type ```` npm test ````
